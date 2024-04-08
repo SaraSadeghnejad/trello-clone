@@ -1,7 +1,9 @@
-import React from 'react'
+import React from "react";
 
-export const Navbar=()=> {
+export const Navbar = () => {
   return (
-    <div>Navbar</div>
-  )
-}
+    <div className="fixed top-0 w-full h-14 px-4 border-b shadow-sm bg-white flex items-center">
+      N
+    </div>
+  );
+};

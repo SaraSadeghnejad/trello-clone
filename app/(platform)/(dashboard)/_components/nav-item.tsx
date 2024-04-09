@@ -84,6 +84,7 @@ const NavItem = ({
           <Button
             key={route.href}
             size="sm"
+            variant='ghost'
             onClick={() => onClick(route.href)}
             className={cn(
               "w-full font-normal justify-start pl-10 mb-1",

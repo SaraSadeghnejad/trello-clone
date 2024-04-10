@@ -21,7 +21,7 @@ const Logo = () => {
         )}
       >
         <Image src="/logo.svg" alt="logo" height={30} width={30} />{" "}
-        <div className="mt-2">Taskify</div>
+        <div className="items-center">Taskify</div>
       </div>
     </Link>
   );

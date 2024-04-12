@@ -1,16 +1,22 @@
 "üse client";
 
+import { defualtImages } from "@/constants/images";
 import { unsplash } from "@/lib/unsplash";
+import { cn } from "@/lib/utils";
 import { Loader2 } from "lucide-react";
+import Image from "next/image";
 import { useEffect, useState } from "react";
+import { useFormStatus } from "react-dom";
 
 interface FormPickerProps {
   id: string;
   errors?: Record<string, string[] | undefined>;
 }
 export const FormPicker = ({ id, errors }: FormPickerProps) => {
+  const { pending } = useFormStatus();
   const [images, setImages] = useState<Array<Record<string, any>>>([]);
-    const [loading, setLoading]= useState(true)
+  const [loading, setLoading] = useState(true);
+  const [selectedImageId, setSelectedImageId] = useState(null);
   useEffect(() => {
     const fetchImages = async () => {
       try {
@@ -19,31 +25,50 @@ export const FormPicker = ({ id, errors }: FormPickerProps) => {
           count: 9
         });
         if (result && result.response) {
-          const newImages =( result.response as Array<Record<string, any>>);
+          const newImages = result.response as Array<Record<string, any>>;
           setImages(newImages);
-        }else{
-            console.error("Failed to get images from splash")
+        } else {
+          console.error("Failed to get images from splash");
         }
       } catch (err) {
         console.log(err);
-        setImages([]);
-      }finally{
-        setLoading(false)
+        setImages([defualtImages]);
+      } finally {
+        setLoading(false);
       }
     };
-    fetchImages()
+    fetchImages();
   }, []);
-  if(loading){
-    return(
-        <div className="p-6 flex justify-center items-center">
-            <Loader2 className="w-6 h-6 text-sky-700 animate-spin" />
-        </div>
-    )
+  if (loading) {
+    return (
+      <div className="p-6 flex justify-center items-center">
+        <Loader2 className="w-6 h-6 text-sky-700 animate-spin" />
+      </div>
+    );
   }
   return (
-    <div>
-      <div></div>
-      Form Picker
+    <div className="relative">
+      <div className="grid grid-cols-3 gap-2 mb-2">
+        {images.map((image) => (
+          <div
+            className={cn(
+              "cursor-pointer relative aspect-video group hover:opacity-75 transition bg-muted",
+              pending && "opacity-50 hover:opacity-50 cursor-auto"
+            )}
+            onClick={() => {
+              if (pending) return;
+              setSelectedImageId(image.id);
+            }}
+          >
+            <Image
+              src={image.urls.thumb}
+              alt="unsplash image"
+              className="object-cover rounded-sm"
+              fill
+            />
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

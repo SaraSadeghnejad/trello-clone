@@ -37,7 +37,8 @@ const FormPopover = ({
   });
   const onSubmit = (formData: FormData) => {
     const title = formData.get("title") as string;
-    execute({title})
+    const image = formData.get("image") as string;
+    execute({title,image})
   };
   return (
     <Popover>
@@ -61,7 +62,6 @@ const FormPopover = ({
         </PopoverClose>
         <form action={onSubmit} className="space-y-4">
           <div className="w-full">
-            gggvvvvvv
             <FormPicker id={"image"} errors={fieldErrors}/>
             <FormInput id={"title"} label="Board Title" type="text" errors={fieldErrors} />
           </div>

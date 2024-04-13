@@ -1,15 +1,16 @@
-"use client"
+
 import FormPopover from "@/components/form/form-popover";
 import Hint from "@/components/hint";
+import { Skeleton } from "@/components/ui/skeleton";
 import { db } from "@/lib/db";
-import { auth, useAuth } from "@clerk/nextjs";
+import { auth } from "@clerk/nextjs";
 import { HelpCircle, User2 } from "lucide-react";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import React from "react";
 
-const BoardList = async() => {
-  const { orgId } = useAuth();
+export const BoardList = async() => {
+  const { orgId } = auth();
   if (!orgId) {
     return redirect("/select-org");
   }
@@ -61,4 +62,17 @@ const BoardList = async() => {
   );
 };
 
-export default BoardList;
+BoardList.skeleton = function SkeletonBoardList(){
+   return (
+     <div className="grid grid-cols-2 sm:grid-col-3 lg:grid-cols-4 gap-4">
+       <Skeleton className="aspect-video h-ful w-full p-2" />
+       <Skeleton className="aspect-video h-ful w-full p-2" />
+       <Skeleton className="aspect-video h-ful w-full p-2" />
+       <Skeleton className="aspect-video h-ful w-full p-2" />
+       <Skeleton className="aspect-video h-ful w-full p-2" />
+       <Skeleton className="aspect-video h-ful w-full p-2" />
+       <Skeleton className="aspect-video h-ful w-full p-2" />
+       <Skeleton className="aspect-video h-ful w-full p-2" />
+     </div>
+   );
+}

@@ -1,3 +1,4 @@
+"use client"
 import { TooltipProvider } from "@radix-ui/react-tooltip";
 import React, { ReactNode } from "react";
 import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";

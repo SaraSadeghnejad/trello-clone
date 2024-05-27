@@ -3,10 +3,10 @@ import React from "react";
 import { Poppins } from "next/font/google";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
-// import localFont from 'next/font/local'
-// const headingFont = localFont({
-//     src:'../public/fonts/font.woff2'
-// })
+import localFont from 'next/font/local'
+const headingFont = localFont({
+    src:'../public/fonts/font.woff2'
+})
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["200", "300", "400", "500"]
@@ -21,7 +21,7 @@ const Logo = () => {
         )}
       >
         <Image src="/logo.svg" alt="logo" height={30} width={30} />{" "}
-        <div className="items-center">Taskify</div>
+        <p className={cn("text-lg text-neutral-700 pb-1",headingFont.className)}>Taskify</p>
       </div>
     </Link>
   );

@@ -1,11 +1,15 @@
-import React, { ReactNode } from 'react'
-import { Navbar } from './_components/navbar'
-import Footer from './_components/footer'
+import React, { ReactNode } from "react";
+import { Navbar } from "./_components/navbar";
+import { Footer } from "./_components/footer";
 
-const ManagementLayout = ({children}:{children:ReactNode}) => {
+const ManagementLayout = ({ children }: { children: ReactNode }) => {
   return (
-    <div className="h-full"><Navbar/><main>{children}</main><Footer /></div>
-  )
-}
+    <div className="h-full bg-slate-100">
+      <Navbar />
+      <main className="pt-40 pb-20 bg-slate-100">{children}</main>
+      <Footer />
+    </div>
+  );
+};
 
-export default ManagementLayout
+export default ManagementLayout;

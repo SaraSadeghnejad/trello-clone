@@ -70,8 +70,8 @@ const NavItem = ({
           <div className="w-7 h-7 relative">
             <Image
               src={organization.imageUrl}
-              alt="Organization"
-              className="rounded-sm object-cover"
+              alt="Organization" 
+              className="rounded-sm object-cover" 
               width={50}
               height={50}
             />

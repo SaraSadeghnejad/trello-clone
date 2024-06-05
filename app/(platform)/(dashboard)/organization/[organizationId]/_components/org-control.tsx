@@ -13,6 +13,6 @@ import React, { useEffect } from "react";
       organization: params.organizationId as string
     });
   }, [setActive, params.organizationId]);
-  return <></>;
+  return null;
 };
 export default OrgControl

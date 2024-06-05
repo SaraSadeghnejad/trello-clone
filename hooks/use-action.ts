@@ -40,11 +40,11 @@ export const useAction = <TInput, TOutput>(
         }
         if (result.data) {
           setData(result.data);
-          options.onSuccess?.(result.data);
+          options?.onSuccess?.(result.data);
         }
       } finally {
         setIsLoading(false);
-        options.onComplete?.();
+        options?.onComplete?.();
       }
     },
     [action, options]

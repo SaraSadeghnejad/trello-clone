@@ -16,7 +16,7 @@ const Navbar = () => {
         </div>
         <FormPopover align="start" side="bottom" sideOffset={18}>
           <Button
-            className="hidden md:block rounded-sm"
+            className="hidden md:block rounded-sm h-auto py-1.5 px-2"
             size="sm"
             variant="primary"
           >

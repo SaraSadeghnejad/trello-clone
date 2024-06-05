@@ -1,16 +1,13 @@
-import { OrganizationSwitcher } from "@clerk/nextjs";
+import { OrganizationList } from "@clerk/nextjs";
 import React from "react";
 
 const SelectOrgPage = () => {
   return (
-    <div>
-      <OrganizationSwitcher
-        hidePersonal
-        afterCreateOrganizationUrl={"/organization/:organizationId"}
-        afterLeaveOrganizationUrl="/select-org"
-        afterSelectOrganizationUrl={"/organization/:organizationId"}
-      />
-    </div>
+    <OrganizationList
+      hidePersonal
+      afterCreateOrganizationUrl={"/organization/:organizationId"}
+      afterSelectOrganizationUrl={"/organization/:organizationId"}
+    />
   );
 };
 

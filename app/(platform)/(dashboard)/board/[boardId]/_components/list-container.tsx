@@ -95,7 +95,7 @@ const ListContainer = ({ boardId, data }: ListContainerProps) => {
     }
  
    }
- }
+
   return (
     <DragDropContext onDragEnd={onDragEnd}>
       <Droppable droppableId="lists" type="list" direction="horizontal">

@@ -10,7 +10,7 @@ const OrganizationIdPage = async () => {
       <Info />
       <Separator className="my-3" />
       <div className="px-2 md:mx-4">
-        <Suspense fallback={<BoardList.Skeleton />}>
+        <Suspense fallback={<>Loading...</>}>
           <BoardList />
         </Suspense>
       </div>
